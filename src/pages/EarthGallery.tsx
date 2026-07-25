@@ -11,9 +11,9 @@ export default function EarthGallery() {
     <div className={s.page}>
       <div className={s.inner}>
         <div className={s.header}>
-          <h1 className={s.title}>지구 사진 갤러리</h1>
+          <h1 className={s.title}>Earth Photo Gallery</h1>
           <p className={s.subtitle}>
-            NASA EPIC 위성이 촬영한 지구의 모습을 날짜별로 감상하세요.
+            Browse daily Earth imagery captured by NASA's EPIC satellite camera aboard DSCOVR.
           </p>
         </div>
 
@@ -23,11 +23,11 @@ export default function EarthGallery() {
           onSelect={setSelectedDate}
         />
 
-        {loading && <p className={s.loading}>사진 로딩 중...</p>}
-        {error && <p className={s.error}>오류: {error}</p>}
+        {loading && <p className={s.loading}>Loading photos...</p>}
+        {error && <p className={s.error}>Error: {error}</p>}
         {!loading && !error && (
           <>
-            <p className={s.count}>{images.length}장의 사진</p>
+            <p className={s.count}>{images.length} photo{images.length !== 1 ? "s" : ""}</p>
             <div className={s.grid}>
               {images.map((img) => (
                 <EpicPhotoCard key={img.identifier} image={img} />

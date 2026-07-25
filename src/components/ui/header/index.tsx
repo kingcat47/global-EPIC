@@ -14,23 +14,23 @@ export default function Header() {
           <Link to="/" className={s.logoLink}>
             <span className={s.brand}>🌍 NASA Earth Watch</span>
           </Link>
-          <nav className={s.items} aria-label="주요 메뉴">
+          <nav className={s.items} aria-label="Main navigation">
             <HeaderItem
-              text={"홈"}
+              text="Home"
               icon={Globe}
-              href={"/"}
+              href="/"
               isActive={pathname === "/"}
             />
             <HeaderItem
-              text={"이벤트"}
+              text="Events"
               icon={AlertTriangle}
-              href={"/events"}
+              href="/events"
               isActive={pathname.startsWith("/events")}
             />
             <HeaderItem
-              text={"지구사진"}
+              text="Gallery"
               icon={Image}
-              href={"/earth"}
+              href="/earth"
               isActive={pathname.startsWith("/earth")}
             />
           </nav>

@@ -16,11 +16,11 @@ export default function Home() {
   return (
     <HeroSection
       title="NASA Earth Watch"
-      subtitle="실시간 자연재해와 지구 위성 사진을 한눈에 확인하세요"
+      subtitle="Real-time natural disaster events and Earth satellite imagery, visualized."
     >
       <div className={s.globePane}>
         {eventsLoading ? (
-          <div className={s.paneLoading}>이벤트 데이터 로딩 중...</div>
+          <div className={s.paneLoading}>Loading event data...</div>
         ) : (
           <GlobeViewer
             events={events}
@@ -32,14 +32,14 @@ export default function Home() {
         <div className={s.sidePaneInner}>
           <div className={s.section}>
             <h2 className={s.sectionTitle}>
-              활성 자연재해{" "}
+              Active Events{" "}
               {!eventsLoading && (
                 <span className={s.count}>{events.length}</span>
               )}
             </h2>
             <div className={s.eventSummary}>
               {eventsLoading ? (
-                <p className={s.loadingText}>로딩 중...</p>
+                <p className={s.loadingText}>Loading...</p>
               ) : (
                 events.slice(0, 5).map((ev) => (
                   <div
@@ -57,16 +57,16 @@ export default function Home() {
                   className={s.viewAll}
                   onClick={() => navigate("/events")}
                 >
-                  전체 보기 ({events.length}개) →
+                  View all ({events.length}) →
                 </button>
               )}
             </div>
           </div>
 
           <div className={s.section}>
-            <h2 className={s.sectionTitle}>최신 지구 사진 (EPIC)</h2>
+            <h2 className={s.sectionTitle}>Latest Earth Photo (EPIC)</h2>
             {imagesLoading ? (
-              <p className={s.loadingText}>로딩 중...</p>
+              <p className={s.loadingText}>Loading...</p>
             ) : latestEpic ? (
               <div className={s.epicPreview} onClick={() => navigate("/earth")}>
                 <img

@@ -1,126 +1,119 @@
-# React Default Template
+# NASA Earth Watch
 
-내가 쓰려고 만든 템플릿.
+A React app that visualizes real-time natural disaster events and Earth satellite imagery using NASA's public APIs — no API key required.
 
-## 사용 방법
+**Live demo:** https://global-epic.vercel.app *(deploy to update)*
+
+---
+
+## Features
+
+- **3D Interactive Globe** — EONET disaster events plotted as colored markers on a real-time Earth globe (react-globe.gl)
+- **Natural Disaster Events** — Browse and filter active events by category (wildfires, floods, storms, earthquakes, volcanoes, and more)
+- **Event Detail** — Click any event to see its full history, coordinates, magnitude, and sources
+- **Earth Photo Gallery** — Browse daily full-disk Earth photos from NASA's EPIC satellite camera, with date picker
+
+---
+
+## Tech Stack
+
+| | |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build | Vite |
+| Routing | React Router DOM v7 (nested routes) |
+| Styling | SCSS Modules |
+| 3D Globe | react-globe.gl (Three.js) |
+| Icons | lucide-react |
+
+---
+
+## APIs Used
+
+Both APIs are **free and require no API key**.
+
+| API | Endpoint | Description |
+|---|---|---|
+| [NASA EONET v3](https://eonet.gsfc.nasa.gov/docs/v3) | `/api/v3/events` | Real-time natural disaster events with GeoJSON coordinates |
+| [NASA EPIC](https://epic.gsfc.nasa.gov/about/api) | `/api/natural` | Full-disk Earth photos from the DSCOVR spacecraft |
+
+---
+
+## Getting Started
 
 ```bash
-# 1. 템플릿으로 프로젝트 생성
-npx degit kingcat47/React_default-template .
-
-# 2. 패키지 설치
+# Install dependencies
 npm install
 
-# 3. .env 설정
-cp .env.example .env
+# Start dev server
+npm run dev
 
-# 4. Git 초기화 및 원격 저장소 연결
-git init
-git remote add origin repo_url
-git add .
-git commit -m "Initial commit from template"
-git push -u origin main
+# Build for production
+npm run build
 ```
 
-## 기술 스택
+---
 
-- React 19 + TypeScript
-- Vite
-- SCSS Modules (variables.scss 전역 자동 주입)
-- React Router DOM v7
-- ESLint
-
-## 폴더 구조
+## Project Structure
 
 ```
 src/
-├── assets/         # 이미지, 아이콘 등 정적 파일
+├── types/
+│   ├── eonet.ts          # EONET API types
+│   └── epic.ts           # EPIC API types
+├── hooks/
+│   ├── useEonetEvents.ts      # Fetch all active events
+│   ├── useEonetEventDetail.ts # Fetch single event by ID
+│   └── useEpicImages.ts       # Fetch EPIC photos + available dates
+├── utils/
+│   └── eventUtils.ts     # Category colors, URL builder, date formatter
 ├── components/
-│   ├── auth/       # 로그인 관련 컴포넌트
-│   ├── layout/     # 레이아웃 컴포넌트
-│   └── ui/         # 공용 UI 컴포넌트
-├── hooks/          # 커스텀 훅
-├── pages/          # 페이지 컴포넌트
-├── styles/         # 전역 스타일
-├── types/          # 타입 정의
-├── utils/          # 유틸리티 함수
-└── router.tsx      # 라우터 설정
+│   ├── globe/
+│   │   └── GlobeViewer/  # react-globe.gl wrapper with EONET markers
+│   ├── home/
+│   │   └── HeroSection/  # Globe + sidebar layout (children-based)
+│   ├── events/
+│   │   ├── EventCard/        # Event card (props-based)
+│   │   ├── CategoryBadge/    # Category badge, nested inside EventCard
+│   │   ├── EventList/        # List wrapper (children-based)
+│   │   └── EventFilterBar/   # Category filter bar (props-based)
+│   └── epic/
+│       ├── EpicPhotoCard/    # Photo card (props-based)
+│       └── EpicDatePicker/   # Date navigation (props-based)
+└── pages/
+    ├── Home.tsx          # Globe + live sidebar
+    ├── Events.tsx        # Event list with category filter
+    ├── EventDetail.tsx   # Single event detail (nested route: /events/:id)
+    └── EarthGallery.tsx  # EPIC photo grid with date picker
 ```
 
-## 라우터 구조
+---
 
-Header가 필요한 일반 페이지는 `children` 안에, 로그인처럼 Header 없는 페이지는 바깥에 추가.
+## Routes
 
-```tsx
-const Router = createBrowserRouter([
-  {
-    element: <RootLayout />,   // Header 포함
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
-    ],
-  },
-  {
-    path: "/auth/login",       // Header 없는 페이지
-    element: <LoginPage />,
-  },
-]);
+```
+/             → Home (Globe + sidebar)
+/events       → Natural disaster event list
+/events/:id   → Event detail (nested route)
+/earth        → Earth photo gallery
 ```
 
-## UI 컴포넌트
+---
 
-```tsx
-import { Button, Checkbox, Header, Input, Spacing, HStack, VStack, Typo } from "@/components/ui";
-```
+## Event Categories
 
-| 컴포넌트 | 설명 |
+| Category | Color |
 |---|---|
-| `Button` | size(large/medium), variant(primary/secondary/tertiary), pending 스피너 |
-| `Input` | label, size, variant, error 메시지, 좌우 아이콘 |
-| `Checkbox` | controlled/uncontrolled, indeterminate, label/description/error |
-| `Typo` | Display / Headline / BodyLarge / Body / Subtext / Caption |
-| `HStack` / `VStack` | flex 레이아웃, align/justify/gap prop |
-| `Spacing` | 수직/수평 여백 컴포넌트 |
-| `Header` | 로고 + 네비게이션 + 로그인 버튼 |
-| `MainLayout` | 최대 너비 1200px 컨텐츠 래퍼 |
-
-## 레이아웃
-
-```tsx
-import { RootLayout, MainLayout, Authlayout } from "@/components/layout";
-```
-
-- `RootLayout` — 앱 전체를 감싸는 최상위 레이아웃 (Header 포함)
-- `MainLayout` — 일반 페이지용 컨텐츠 래퍼
-- `Authlayout` — 로그인 등 인증 페이지용 레이아웃
-
-## 로그인 컴포넌트 (LoginModal)
-
-SNS 로그인 버튼과 전화번호 로그인 링크를 포함한 로그인 UI 컴포넌트.
-
-```tsx
-import LoginModal from "@/components/auth";
-
-<LoginModal providers={["google", "kakao", "naver"]} showPhoneLogin />
-```
-
-| prop | 타입 | 기본값 | 설명 |
-|---|---|---|---|
-| providers | `("google" \| "kakao" \| "naver")[]` | `["google", "kakao", "naver"]` | 표시할 SNS 로그인 버튼 |
-| showPhoneLogin | `boolean` | `false` | 전화번호 로그인 링크 표시 여부 |
-
-```tsx
-// 구글만 + 전화번호 링크 포함
-<LoginModal providers={["google"]} showPhoneLogin />
-
-// 국내용 (카카오 + 네이버)
-<LoginModal providers={["kakao", "naver"]} />
-```
-
-## 경로 별칭
-
-`@/`는 `src/`를 가리킵니다.
-
-```tsx
-import { Button } from "@/components/ui";
-```
+| Wildfires | 🟠 |
+| Floods | 🔵 |
+| Severe Storms | 🟣 |
+| Earthquakes | 🟤 |
+| Volcanoes | 🔴 |
+| Drought | 🟡 |
+| Landslides | 🤎 |
+| Snow | 🩵 |
+| Sea & Lake Ice | 🩵 |
+| Dust & Haze | 🟤 |
+| Water Color | 🩵 |
+| Temperature Extremes | 🟠 |
+| Manmade | ⚫ |

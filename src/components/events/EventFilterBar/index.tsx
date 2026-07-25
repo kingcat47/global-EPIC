@@ -4,7 +4,7 @@ import s from "./styles.module.scss";
 const CATEGORIES = [
   "wildfires",
   "floods",
-  "storms",
+  "severeStorms",
   "earthquakes",
   "volcanoes",
   "drought",
@@ -29,7 +29,7 @@ export default function EventFilterBar({ selected, onSelect }: EventFilterBarPro
         className={`${s.chip} ${selected === null ? s.active : ""}`}
         onClick={() => onSelect(null)}
       >
-        전체
+        All
       </button>
       {CATEGORIES.map((cat) => {
         const color = getCategoryColor(cat);

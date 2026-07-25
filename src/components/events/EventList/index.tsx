@@ -10,7 +10,7 @@ export default function EventList({ children, isEmpty }: EventListProps) {
   if (isEmpty) {
     return (
       <div className={s.empty}>
-        <p>해당 카테고리의 활성 이벤트가 없습니다.</p>
+        <p>No active events found for this category.</p>
       </div>
     );
   }

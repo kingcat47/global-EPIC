@@ -3,7 +3,7 @@ import type { EonetEvent } from "@/types/eonet";
 export const CATEGORY_COLORS: Record<string, string> = {
   wildfires: "#FF4500",
   floods: "#1E90FF",
-  storms: "#9370DB",
+  severeStorms: "#9370DB",
   earthquakes: "#D2691E",
   volcanoes: "#FF6347",
   drought: "#DAA520",
@@ -22,19 +22,19 @@ export function getCategoryColor(categoryId: string): string {
 
 export function getCategoryLabel(categoryId: string): string {
   const labels: Record<string, string> = {
-    wildfires: "산불",
-    floods: "홍수",
-    storms: "폭풍",
-    earthquakes: "지진",
-    volcanoes: "화산",
-    drought: "가뭄",
-    landslides: "산사태",
-    snow: "폭설",
-    seaLakeIce: "빙하",
-    dustHaze: "황사",
-    waterColor: "수질변화",
-    tempExtremes: "이상기온",
-    manmade: "인재",
+    wildfires: "Wildfires",
+    floods: "Floods",
+    severeStorms: "Severe Storms",
+    earthquakes: "Earthquakes",
+    volcanoes: "Volcanoes",
+    drought: "Drought",
+    landslides: "Landslides",
+    snow: "Snow",
+    seaLakeIce: "Sea & Lake Ice",
+    dustHaze: "Dust & Haze",
+    waterColor: "Water Color",
+    tempExtremes: "Temp. Extremes",
+    manmade: "Manmade",
   };
   return labels[categoryId] ?? categoryId;
 }
@@ -53,7 +53,7 @@ export function buildEpicImageUrl(image: string, date: string): string {
 
 export function formatDate(dateStr: string): string {
   const d = new Date(dateStr);
-  return d.toLocaleDateString("ko-KR", {
+  return d.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",

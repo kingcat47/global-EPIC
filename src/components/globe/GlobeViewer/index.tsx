@@ -40,7 +40,7 @@ export default function GlobeViewer({ events, onEventClick }: GlobeViewerProps) 
 
   return (
     <div ref={containerRef} className={s.container}>
-      <Suspense fallback={<div className={s.loading}>지구본 로딩 중...</div>}>
+      <Suspense fallback={<div className={s.loading}>Loading globe...</div>}>
         <Globe
           globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
           backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"

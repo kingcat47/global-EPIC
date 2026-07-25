@@ -13,7 +13,7 @@ export default function EventDetail() {
     return (
       <div className={s.page}>
         <div className={s.inner}>
-          <p className={s.loading}>이벤트 정보 로딩 중...</p>
+          <p className={s.loading}>Loading event details...</p>
         </div>
       </div>
     );
@@ -25,9 +25,9 @@ export default function EventDetail() {
         <div className={s.inner}>
           <Link to="/events" className={s.back}>
             <ArrowLeft size={16} />
-            이벤트 목록으로
+            Back to Events
           </Link>
-          <p className={s.error}>{error ?? "이벤트를 찾을 수 없습니다."}</p>
+          <p className={s.error}>{error ?? "Event not found."}</p>
         </div>
       </div>
     );
@@ -40,7 +40,7 @@ export default function EventDetail() {
       <div className={s.inner}>
         <Link to="/events" className={s.back}>
           <ArrowLeft size={16} />
-          이벤트 목록으로
+          Back to Events
         </Link>
 
         <div className={s.card}>
@@ -60,7 +60,7 @@ export default function EventDetail() {
             <div className={s.metaItem}>
               <Clock size={15} className={s.metaIcon} />
               <div>
-                <p className={s.metaLabel}>최근 발생</p>
+                <p className={s.metaLabel}>Latest occurrence</p>
                 <p className={s.metaValue}>
                   {formatDate(event.geometry[0]?.date ?? "")}
                 </p>
@@ -71,7 +71,7 @@ export default function EventDetail() {
               <div className={s.metaItem}>
                 <MapPin size={15} className={s.metaIcon} />
                 <div>
-                  <p className={s.metaLabel}>좌표</p>
+                  <p className={s.metaLabel}>Coordinates</p>
                   <p className={s.metaValue}>
                     {coords.lat.toFixed(4)}°N, {coords.lng.toFixed(4)}°E
                   </p>
@@ -81,16 +81,16 @@ export default function EventDetail() {
 
             <div className={s.metaItem}>
               <div>
-                <p className={s.metaLabel}>상태</p>
+                <p className={s.metaLabel}>Status</p>
                 <p className={`${s.metaValue} ${event.closed ? s.closed : s.open}`}>
-                  {event.closed ? "종료" : "활성"}
+                  {event.closed ? "Closed" : "Active"}
                 </p>
               </div>
             </div>
           </div>
 
           <div className={s.geometryList}>
-            <h2 className={s.subTitle}>이벤트 기록 ({event.geometry.length}개)</h2>
+            <h2 className={s.subTitle}>Event history ({event.geometry.length} records)</h2>
             <div className={s.geometryItems}>
               {event.geometry.slice(0, 10).map((geo, i) => (
                 <div key={i} className={s.geoRow}>
@@ -106,7 +106,7 @@ export default function EventDetail() {
           </div>
 
           <div className={s.sources}>
-            <h2 className={s.subTitle}>출처</h2>
+            <h2 className={s.subTitle}>Sources</h2>
             {event.sources.map((src) => (
               <a
                 key={src.id}

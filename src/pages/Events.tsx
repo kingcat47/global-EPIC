@@ -23,9 +23,9 @@ export default function Events() {
     <div className={s.page}>
       <div className={s.inner}>
         <div className={s.header}>
-          <h1 className={s.title}>자연재해 이벤트</h1>
+          <h1 className={s.title}>Natural Disaster Events</h1>
           <p className={s.subtitle}>
-            NASA EONET이 추적 중인 실시간 자연재해 이벤트 목록입니다.
+            Active natural disaster events currently tracked by NASA EONET.
           </p>
         </div>
 
@@ -34,8 +34,8 @@ export default function Events() {
           onSelect={setSelectedCategory}
         />
 
-        {loading && <p className={s.loading}>이벤트 로딩 중...</p>}
-        {error && <p className={s.error}>오류: {error}</p>}
+        {loading && <p className={s.loading}>Loading events...</p>}
+        {error && <p className={s.error}>Error: {error}</p>}
         {!loading && !error && (
           <EventList isEmpty={filtered.length === 0}>
             {filtered.map((ev) => (
