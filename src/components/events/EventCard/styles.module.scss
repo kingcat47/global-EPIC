@@ -1,0 +1,44 @@
+.card {
+  background: #16213e;
+  border: 1px solid #1a2a4a;
+  border-radius: $radius-12;
+  padding: $spacing-16;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+
+  &:hover {
+    border-color: #45C1FF55;
+    transform: translateY(-2px);
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-4;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e8f4ff;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  font-size: 12px;
+  color: #7a9ab5;
+}

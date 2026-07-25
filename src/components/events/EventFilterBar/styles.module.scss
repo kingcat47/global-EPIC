@@ -1,0 +1,31 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-8;
+  padding-bottom: $spacing-20;
+}
+
+.chip {
+  padding: 6px 14px;
+  border-radius: $radius-full;
+  border: 1px solid #1a2a4a;
+  background: transparent;
+  color: #7a9ab5;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+
+  &:hover {
+    border-color: #45C1FF55;
+    color: #45C1FF;
+  }
+
+  &.active {
+    background: #45C1FF;
+    border-color: #45C1FF;
+    color: #0a0f1e;
+    font-weight: 600;
+  }
+}

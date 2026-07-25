@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+}
+
+.empty {
+  text-align: center;
+  padding: $spacing-48;
+  color: #7a9ab5;
+  font-size: 14px;
+}
