@@ -8,7 +8,7 @@ export function useEonetEvents() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://eonet.gsfc.nasa.gov/api/v3/events?limit=50&status=open")
+    fetch("https://eonet.gsfc.nasa.gov/api/v3/events?limit=500&status=open")
       .then((res) => {
         if (!res.ok) throw new Error("EONET API 요청 실패");
         return res.json();
