@@ -1,0 +1,59 @@
+.picker {
+  display: flex;
+  align-items: center;
+  gap: $spacing-8;
+  padding: $spacing-16 0;
+}
+
+.arrow {
+  background: #16213e;
+  border: 1px solid #1a2a4a;
+  border-radius: $radius-8;
+  color: #7a9ab5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  transition: all 0.15s;
+
+  &:hover:not(:disabled) {
+    border-color: #45C1FF55;
+    color: #45C1FF;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.dateList {
+  display: flex;
+  gap: $spacing-6;
+  flex-wrap: wrap;
+}
+
+.dateChip {
+  padding: 6px 12px;
+  border-radius: $radius-8;
+  border: 1px solid #1a2a4a;
+  background: transparent;
+  color: #7a9ab5;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+
+  &:hover {
+    border-color: #45C1FF55;
+    color: #45C1FF;
+  }
+
+  &.active {
+    background: #45C1FF;
+    border-color: #45C1FF;
+    color: #0a0f1e;
+    font-weight: 600;
+  }
+}

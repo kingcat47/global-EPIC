@@ -1,0 +1,50 @@
+.page {
+  min-height: calc(100vh - 74px);
+  background: #0a0f1e;
+  padding: $spacing-40 0;
+}
+
+.inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $padding;
+}
+
+.header {
+  margin-bottom: $spacing-24;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #e8f4ff;
+  margin: 0 0 $spacing-8;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #7a9ab5;
+  margin: 0;
+}
+
+.loading, .error {
+  color: #7a9ab5;
+  font-size: 15px;
+  padding: $spacing-40 0;
+}
+
+.error {
+  color: #FF6347;
+}
+
+.count {
+  font-size: 13px;
+  color: #4a6a80;
+  margin: 0 0 $spacing-16;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: $spacing-16;
+}
