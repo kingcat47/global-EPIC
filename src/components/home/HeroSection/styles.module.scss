@@ -1,0 +1,37 @@
+.hero {
+  min-height: calc(100vh - 74px);
+  background: #020a1a;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  padding: $spacing-32 $spacing-24 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #e8f4ff;
+  margin: 0 0 $spacing-8;
+  span {
+    color: #45C1FF;
+  }
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #7a9ab5;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}

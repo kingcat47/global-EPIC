@@ -1,0 +1,151 @@
+.globePane {
+  flex: 1;
+  min-height: 500px;
+  background: #020a1a;
+}
+
+.sidePane {
+  width: 340px;
+  background: #0a0f1e;
+  border-left: 1px solid #1a2a4a;
+  overflow-y: auto;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #1a2a4a;
+  }
+}
+
+.sidePaneInner {
+  padding: $spacing-24;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-32;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #7a9ab5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: $spacing-8;
+}
+
+.count {
+  background: #45C1FF22;
+  color: #45C1FF;
+  border-radius: $radius-full;
+  padding: 1px 8px;
+  font-size: 12px;
+}
+
+.paneLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #45C1FF;
+  font-size: 15px;
+}
+
+.loadingText {
+  color: #7a9ab5;
+  font-size: 13px;
+  margin: 0;
+}
+
+.eventSummary {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.eventRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-10;
+  cursor: pointer;
+  padding: $spacing-8;
+  border-radius: $radius-8;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #1a2a4a;
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FF4500;
+  flex-shrink: 0;
+}
+
+.eventName {
+  font-size: 13px;
+  color: #c8dce8;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.viewAll {
+  background: none;
+  border: 1px solid #1a2a4a;
+  border-radius: $radius-8;
+  color: #45C1FF;
+  font-size: 13px;
+  padding: $spacing-8 $spacing-12;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #45C1FF11;
+  }
+}
+
+.epicPreview {
+  cursor: pointer;
+  border-radius: $radius-12;
+  overflow: hidden;
+  border: 1px solid #1a2a4a;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: #45C1FF55;
+  }
+}
+
+.epicImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.epicCaption {
+  font-size: 12px;
+  color: #7a9ab5;
+  margin: 0;
+  padding: $spacing-8;
+  background: #16213e;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
