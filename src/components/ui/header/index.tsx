@@ -1,57 +1,40 @@
-import { Home, LayoutGrid, ListVideo, ShoppingCart } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui";
+import { Globe, AlertTriangle, Image } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import HeaderItem from "@/components/ui/header/header-item";
 
 import s from "./styles.module.scss";
 
 export default function Header() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   return (
     <header className={s.header}>
       <div className={s.header_content}>
         <div className={s.right}>
           <Link to="/" className={s.logoLink}>
-            <img
-              className={s.logo}
-              src="/logo.svg"
-              alt="logo"
-              width="77"
-              height="22"
-            />
+            <span className={s.brand}>🌍 NASA Earth Watch</span>
           </Link>
           <nav className={s.items} aria-label="주요 메뉴">
             <HeaderItem
               text={"홈"}
-              icon={Home}
+              icon={Globe}
               href={"/"}
               isActive={pathname === "/"}
             />
             <HeaderItem
-              text={"서비스"}
-              icon={ShoppingCart}
-              href={"/service"}
-              isActive={pathname.startsWith("/service")}
+              text={"이벤트"}
+              icon={AlertTriangle}
+              href={"/events"}
+              isActive={pathname.startsWith("/events")}
             />
             <HeaderItem
-              text={"컨텐츠"}
-              icon={ListVideo}
-              href={"/my-contents"}
-              isActive={pathname.startsWith("/my-contents")}
-            />
-            <HeaderItem
-              text={"내 구독"}
-              icon={LayoutGrid}
-              href={"/subscription"}
-              isActive={pathname.startsWith("/subscription")}
+              text={"지구사진"}
+              icon={Image}
+              href={"/earth"}
+              isActive={pathname.startsWith("/earth")}
             />
           </nav>
-        </div>          
-          <Button size="medium" variant="primary" onClick={() => navigate("/auth/login")}>
-            로그인
-          </Button>
+        </div>
       </div>
     </header>
   );
