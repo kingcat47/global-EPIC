@@ -1,0 +1,167 @@
+.page {
+  min-height: calc(100vh - 74px);
+  background: #0a0f1e;
+  padding: $spacing-40 0;
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 $padding;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-6;
+  color: #7a9ab5;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: $spacing-24;
+  transition: color 0.15s;
+
+  &:hover {
+    color: #45C1FF;
+  }
+}
+
+.loading, .error {
+  color: #7a9ab5;
+  font-size: 15px;
+  padding-top: $spacing-40;
+}
+
+.error {
+  color: #FF6347;
+}
+
+.card {
+  background: #16213e;
+  border: 1px solid #1a2a4a;
+  border-radius: $radius-16;
+  padding: $spacing-32;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-24;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-6;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e8f4ff;
+  margin: 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #7a9ab5;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.metaGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-20;
+}
+
+.metaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-10;
+}
+
+.metaIcon {
+  color: #45C1FF;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.metaLabel {
+  font-size: 11px;
+  color: #4a6a80;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 2px;
+}
+
+.metaValue {
+  font-size: 14px;
+  color: #c8dce8;
+  font-weight: 500;
+  margin: 0;
+}
+
+.open {
+  color: #4ade80;
+}
+
+.closed {
+  color: #7a9ab5;
+}
+
+.subTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7a9ab5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 $spacing-12;
+}
+
+.geometryList {
+  border-top: 1px solid #1a2a4a;
+  padding-top: $spacing-20;
+}
+
+.geometryItems {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.geoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  padding: $spacing-6 0;
+  border-bottom: 1px solid #0f1a2e;
+}
+
+.geoDate {
+  color: #c8dce8;
+}
+
+.geoMag {
+  color: #45C1FF;
+  font-weight: 600;
+}
+
+.sources {
+  border-top: 1px solid #1a2a4a;
+  padding-top: $spacing-20;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.sourceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-6;
+  color: #45C1FF;
+  text-decoration: none;
+  font-size: 13px;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
