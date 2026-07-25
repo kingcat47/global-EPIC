@@ -25,7 +25,7 @@
 
     /* Path Mapping */
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"]
